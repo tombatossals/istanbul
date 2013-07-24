@@ -100,6 +100,11 @@
         .cstat-no { background: #fc8c84; color: #111; }
         .fstat-no { background: #ffc520; color: #111 !important; }
         .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background:  #ddd !important; color: #111; }
+
         .missing-if-branch {
             display: inline-block;
             margin-right: 10px;
@@ -107,7 +112,14 @@
             padding: 0 4px;
             background: black;
             color: yellow;
-            xtext-decoration: line-through;
+        }
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
         }
         .missing-if-branch .typ {
             color: inherit !important;

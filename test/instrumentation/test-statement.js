@@ -22,6 +22,16 @@ module.exports = {
         "should cover line and other branch": function (test) {
             verifier.verify(test, [ 1 ], "undef", { lines: { 1: 1, 2: 1 }, branches: { 1: [ 0, 1 ]}, functions: {}, statements: { 1: 1, 2: 1 } });
             test.done();
+        },
+        "returns last coverage object": function (test) {
+            var instrumenter = new Instrumenter(),
+                cov;
+            instrumenter.instrumentSync(code.join("\n"));
+            cov = instrumenter.lastFileCoverage();
+            test.ok(cov);
+            test.ok(cov.s);
+            test.ok(cov.statementMap);
+            test.done();
         }
     },
     "with no filename": {
