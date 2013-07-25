@@ -67,6 +67,34 @@ Verifier.prototype = {
 
     verifyNoError: function (test) {
         test.ok(!(this.err && typeof this.err === 'object'), 'Error should not be present');
+    },
+
+    verifySkips: function (test, statements, functions, branches) {
+        var sMap = {},
+            fMap = {},
+            bMap = {},
+            cov = this.getFileCoverage();
+
+        statements.forEach(function (s) { sMap[s] = true; });
+        functions.forEach(function (s) { fMap[s] = true; });
+        branches.forEach(function (s) { bMap[s] = true; });
+        Object.keys(cov.statementMap).forEach(function (s) {
+            var skip = cov.statementMap[s].skip;
+            test.equal(sMap[s], skip);
+        });
+        Object.keys(cov.fnMap).forEach(function (s) {
+            var skip = cov.fnMap[s].skip;
+            test.equal(fMap[s], skip);
+        });
+        Object.keys(cov.branchMap).forEach(function (s) {
+            var locations = cov.branchMap[s].locations,
+                i,
+                key;
+            for (i = 0; i < locations.length; i += 1) {
+                key = s + ':' + i;
+                test.equal(bMap[key], locations[i].skip);
+            }
+        });
     }
 };
 
