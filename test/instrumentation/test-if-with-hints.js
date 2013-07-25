@@ -46,7 +46,6 @@ module.exports = {
                 code[1] = '/* istanbul ignore else */';
                 verifier = helper.verifier(__filename, code);
                 verifier.verify(test, [ 20, 10 ], 20, { lines: { 1: 1, 3: 1, 4: 1 }, branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1 } });
-                var cov = verifier.getFileCoverage();
                 verifier.verifySkips(test, [], [], ['1:1']);
                 test.done();
             },
@@ -122,14 +121,14 @@ module.exports = {
                 cb(null);
             },
             "should cover then path": function (test) {
-                code[0] = '/* istanbul ignore else */'
+                code[0] = '/* istanbul ignore else */';
                 verifier = helper.verifier(__filename, code);
                 verifier.verify(test, [ 20, 10 ], 20, { lines: { 2: 1, 3: 1, 5: 1 }, branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                 verifier.verifySkips(test, [3], [], ['1:1']);
                 test.done();
             },
             "should cover else path": function (test) {
-                code[0] = '/* istanbul ignore if */'
+                code[0] = '/* istanbul ignore if */';
                 verifier = helper.verifier(__filename, code);
                 verifier.verify(test, [ 10, 20 ], 20, { lines: { 2: 1, 3: 1, 5: 1 }, branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1 } });
                 verifier.verifySkips(test, [2], [], ['1:0']);

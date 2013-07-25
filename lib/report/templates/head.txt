@@ -101,9 +101,9 @@
         .fstat-no { background: #ffc520; color: #111 !important; }
         .cbranch-no { background:  yellow !important; color: #111; }
 
-        .cstat-skip { background: #ddd; color: #111; }
-        .fstat-skip { background: #ddd; color: #111 !important; }
-        .cbranch-skip { background:  #ddd !important; color: #111; }
+        .cstat-skip { background: #fcfcfc; color: #111; }
+        .fstat-skip { background: #fcfcfc; color: #111 !important; }
+        .cbranch-skip { background:  #fcfcfc !important; color: #111; }
 
         .missing-if-branch {
             display: inline-block;
