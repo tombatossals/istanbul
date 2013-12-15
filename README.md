@@ -2,7 +2,7 @@ Istanbul - a JS code coverage tool written in JS
 ================================================
 
 [![Build Status](https://secure.travis-ci.org/gotwarlost/istanbul.png)](http://travis-ci.org/gotwarlost/istanbul)
-[![Dependency Status](https://gemnasium.com/gotwarlost/istanbul.png)](https://gemnasium.com/gotwarlost/istanbul)
+[![Dependency Status](https://gemnasium.com/gotwarlost/istanbul.png)](https://gemnasium.com/tombatossals/angular-leaflet-directive)
 
 [![NPM](https://nodei.co/npm/istanbul.png?downloads=true)](https://nodei.co/npm/istanbul/) 
 
